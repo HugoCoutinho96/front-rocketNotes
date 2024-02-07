@@ -8,7 +8,7 @@ export function Header(){
                 <img src="https://github.com/hugocoutinho96.png" alt="foto do usuário" />
                 <div>
                     <span>Bem-vindo</span>
-                    <strong>Rodrigo Gonçalves</strong>
+                    <strong>Hugo Coutinho</strong>
                 </div>
             </Profile>
 
