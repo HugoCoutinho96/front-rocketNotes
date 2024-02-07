@@ -40,3 +40,14 @@ export const Profile = styled.div`
         }
     }
 `
+
+export const Logout = styled.button`
+    border: none;
+    background: none;
+    font-size: 36px;
+    color: ${({theme}) => theme.COLORS.GRAY_100};
+
+    &:hover{
+        cursor: pointer;
+    }
+`
