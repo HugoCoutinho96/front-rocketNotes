@@ -1,9 +1,9 @@
 import { Container, Links, Content } from "./Details"
-import { Header } from "../components/Header"
-import { Button } from "../components/Button"
-import { Section } from "../components/Section"
-import { Tags } from "../components/Tags"
-import { ButtonText } from "../components/ButtonText"
+import { Header } from "../../components/Header"
+import { Button } from "../../components/Button"
+import { Section } from "../../components/Section"
+import { Tags } from "../../components/Tags"
+import { ButtonText } from "../../components/ButtonText"
 
 export function Details(){
   return (
