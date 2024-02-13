@@ -3,6 +3,8 @@ import { FiPlus, FiSearch } from "react-icons/fi"
 import { Header } from "../../components/Header"
 import { Input } from "../../components/Input"
 import { ButtonText } from "../../components/ButtonText"
+import { Section } from "../../components/Section"
+import { Note } from "../../components/Note"
 
 export function Home(){
     return(
@@ -22,7 +24,16 @@ export function Home(){
             </Search>
 
             <Content>
-
+                <Section title="Minhas notas">
+                    <Note data={{
+                        title: "React", 
+                        tags: [
+                        {   id: '1', name: "React" },
+                        {   id: '2', name: "Express"}
+                    ]
+                }}
+                    />
+                </Section>
             </Content>
 
             <NewNote>
