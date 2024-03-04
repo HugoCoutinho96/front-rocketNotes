@@ -34,6 +34,10 @@ export const Form = styled.form`
         margin-top: 124px;
         color: ${({theme}) => theme.COLORS.ORANGE};
     }
+
+    > button{
+        cursor: pointer;
+    }
 `
 
 export const Background = styled.div`

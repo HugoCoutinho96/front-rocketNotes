@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services"
 
 export const AuthContext = createContext({})
@@ -12,7 +12,9 @@ function AuthProvider({children}){
             const response = await api.post("/sessions", {email, password})
             const {user, token} = response.data
             api.defaults.headers.authorization = `Bearer ${token}`
-            setData(user)
+            localStorage.setItem("@rocketnotes:user", JSON.stringify(user))
+            localStorage.setItem("@rocketnotes:token", token)
+            setData({user})
         }catch(error){
             if(error.response)
                 alert(error.response.data.message)
@@ -20,6 +22,20 @@ function AuthProvider({children}){
                 alert("Não foi possível entrar")
         }
     }
+
+    useEffect(() => {
+        const user = localStorage.getItem("@rocketnotes:user")
+        const token = localStorage.getItem("@rocketnotes:token")
+
+        if(user && token){
+            api.defaults.headers.authorization = `Bearer ${token}`
+
+            setData({
+                user: JSON.parse(user),
+                token
+            })
+        }
+    }, [])
 
     return(
         <AuthContext.Provider value={{signIn, user: data.user}}>
