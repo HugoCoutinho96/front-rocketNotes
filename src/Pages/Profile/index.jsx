@@ -3,8 +3,28 @@ import { Button } from "../../components/Button"
 import { Container, Form, Avatar } from "./styles";
 import { FiArrowLeft, FiUser, FiLock, FiMail, FiCamera } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { useState } from "react"; 
+import { useAuth } from "../../hooks/Auth";
 
 export function Profile(){
+
+    const {updateProfile, user} = useAuth()
+    const [name, setName] = useState(user.name)
+    const [email, setEmail] = useState(user.email)
+    const [oldPassword, setOldPassword] = useState()
+    const [newPassword, setNewPassword] = useState()
+
+    async function handleUpdate(){
+        const user = {
+            name,
+            email,
+            password: newPassword,
+            old_password: oldPassword,
+        }
+
+        await updateProfile({user})
+    }
+
     return(
         <Container>
             <header>
@@ -20,12 +40,12 @@ export function Profile(){
                     </label>
                 </Avatar>
 
-                <Input icon={FiUser} type="text" placeholder="Nome"/>
-                <Input icon={FiMail} type="text" placeholder="Email"/>
-                <Input icon={FiLock} type="text" placeholder="Senha atual"/>
-                <Input icon={FiLock} type="text" placeholder="Nova senha"/>
+                <Input icon={FiUser} type="text" placeholder="Nome" value={name} onChange={e => setName(e.target.value)}/>
+                <Input icon={FiMail} type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+                <Input icon={FiLock} type="password" placeholder="Senha atual" onChange={e => setOldPassword(e.target.value)}/>
+                <Input icon={FiLock} type="password" placeholder="Nova senha" onChange={e => setNewPassword(e.target.value)}/>
 
-                <Button title="Salvar" />
+                <Button title="Salvar" onClick={handleUpdate}/>
             </Form>
         </Container>
     )
