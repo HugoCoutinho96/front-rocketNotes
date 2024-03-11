@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services"
+import { Form } from "react-router-dom";
 
 export const AuthContext = createContext({})
 
@@ -9,17 +10,24 @@ function AuthProvider({children}){
 
     async function signIn({email, password}){
         try{
+            if(!email) return alert("Digite o email.")
+            if(!password) return alert("Digite a senha.")
+
             const response = await api.post("/sessions", {email, password})
             const {user, token} = response.data
+
             api.defaults.headers.common['Authorization'] = `Bearer ${token}`
             localStorage.setItem("@rocketnotes:user", JSON.stringify(user))
             localStorage.setItem("@rocketnotes:token", token)
             setData({user})
         }catch(error){
-            if(error.response)
+            console.log(error)
+            if(error.response){
                 alert(error.response.data.message)
-            else
-                alert("Não foi possível entrar")
+            }
+            else{
+                alert("Não foi possível entrar.")
+            }
         }
     }
 
@@ -29,8 +37,16 @@ function AuthProvider({children}){
         setData({})
     }
 
-    async function updateProfile({user}){
+    async function updateProfile({user, avatarFile}){
         try{
+            if(avatarFile){
+                const fileUpdateForm = new FormData()
+                fileUpdateForm.append("avatar", avatarFile)
+
+                const response = await api.patch("/users/avatar", fileUpdateForm)
+                user.avatar = response.data.avatar
+            }
+
             await api.put("/users", user)
             localStorage.setItem("@rocketnotes:user", JSON.stringify(user))
             setData({user, token: data.token})

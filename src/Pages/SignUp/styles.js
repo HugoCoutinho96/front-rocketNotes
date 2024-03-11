@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import BackgroundImg from "../../assets/notebook.jpg"
+import styled from "styled-components"
 
 export const Container = styled.div`
     height: 100vh;
@@ -38,10 +37,4 @@ export const Form = styled.form`
     > button{
         cursor: pointer;
     }
-`
-
-export const Background = styled.div`
-    flex: 1;
-    background: url(${BackgroundImg}) no-repeat center center;
-    background-size: cover;
 `
