@@ -17,13 +17,18 @@ export function New(){
     function handleAddLink(e){
         e.preventDefault()
         const link = newLink.trim()
-        
+
         if(link === "")
          alert("Digite um link!")
         else{
             setLinks(prevState => [...prevState, link])
             setNewLink("")
         }
+    }
+
+    function handleRemoveLink(deleted, e){
+        e.preventDefault()
+        setLinks(prevState => prevState.filter(link => link != deleted))
     }
 
     return(
@@ -46,7 +51,7 @@ export function New(){
                                 <NoteItem
                                     key={String(index)}
                                     value={link}
-                                    onClick={() => {}}
+                                    onClick={(e) => {handleRemoveLink(link,e)}}
                                 />
                             ))
                         }
