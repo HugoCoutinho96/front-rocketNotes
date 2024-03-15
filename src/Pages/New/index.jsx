@@ -14,6 +14,9 @@ export function New(){
     const [links, setLinks] = useState([])
     const [newLink, setNewLink] = useState("")
 
+    const [tags, setTags] = useState([])
+    const [newTag, setNewTag] = useState("")
+
     function handleAddLink(e){
         e.preventDefault()
         const link = newLink.trim()
@@ -26,9 +29,26 @@ export function New(){
         }
     }
 
+    function handleAddTag(e){
+        e.preventDefault()
+        const tag = newTag.trim()
+
+        if(tag === "")
+         alert("Digite um link!")
+        else{
+            setTags(prevState => [...prevState, tag])
+            setNewTag("")
+        }
+    }
+
     function handleRemoveLink(deleted, e){
         e.preventDefault()
         setLinks(prevState => prevState.filter(link => link != deleted))
+    }
+
+    function handleRemoveTag(deleted, e){
+        e.preventDefault()
+        setTags(prevState => prevState.filter(tag => tag != deleted))
     }
 
     return(
@@ -66,8 +86,22 @@ export function New(){
 
                     <Section title="Marcadores">
                         <div className="tags">
-                            <NoteItem value="react"/>
-                            <NoteItem isNew placeholder="Nova tag"/>
+                            {
+                                tags.map((tag, index) => (
+                                    <NoteItem
+                                        key={String(index)}
+                                        value={tag}
+                                        onClick={e => handleRemoveTag(tag, e)}
+                                    />
+                                ))
+                            }
+                            <NoteItem 
+                                isNew 
+                                placeholder="Nova tag"
+                                onChange={e => setNewTag(e.target.value)}
+                                value={newTag}
+                                onClick={handleAddTag}
+                            />
                         </div>
                     </Section>
 
