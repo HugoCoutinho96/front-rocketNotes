@@ -61,8 +61,10 @@ export function New(){
     async function handleNewNote(){
         if(!title) return alert("Digite o titulo da nota")
         if(!description) return alert("Digite a descrição da nota")
-        if(!links) return alert("Coloque pelo menos um link na nota")
-        if(!tags) return alert("Coloque pelo menos uma tag na nota")
+        if(links.length == 0) return alert("Coloque pelo menos um link na nota")
+        if(tags.length == 0) return alert("Coloque pelo menos uma tag na nota")
+        if(newLink) return alert("Você deixou um link para adicionar. Clique no simbolo de adicionar.")
+        if(newTag) return alert("Você deixou uma tag para adicionar. Clique no simbolo de adicionar.")
 
         await api.post("/notes", {
             title,

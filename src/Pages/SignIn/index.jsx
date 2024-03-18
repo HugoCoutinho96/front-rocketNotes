@@ -1,11 +1,11 @@
-import { Container, Form } from "./styles";
+import { Background, Container, Form } from "./styles";
 import {FiMail, FiLock} from "react-icons/fi"
 import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/Auth";
 import { useState } from "react";
-import notebookImg from "../../assets/notebook.jpg"
+import backgroundImg from "../../assets/notebook.jpg"
 
 export function SignIn(){
 
@@ -17,7 +17,7 @@ export function SignIn(){
     function handleSignIn(){
         signIn({email, password})
     }
-
+    
     return(
         <Container>
             <Form>
@@ -32,7 +32,7 @@ export function SignIn(){
 
                 <Link to="/register">Criar Conta</Link>
             </Form>
-            <img src={notebookImg} />
+            <Background $img={backgroundImg}/>
         </Container>
     )
 }
