@@ -4,40 +4,65 @@ import { Button } from "../../components/Button"
 import { Section } from "../../components/Section"
 import { Tags } from "../../components/Tags"
 import { ButtonText } from "../../components/ButtonText"
+import { useNavigate, useParams } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { api } from "../../services"
 
 export function Details(){
+
+  const [data, setData] = useState(null)
+  const params = useParams()
+  const navigate = useNavigate()
+
+  function handleBack(){
+    navigate("/")
+  }
+
+  useEffect(() => {
+    async function fetchNotes(){
+      const response = await api.get(`/notes/${params.id}`)
+      setData(response.data)
+    }
+
+    fetchNotes()
+  },[])
   return (
     <Container>
       <Header/>
+      {
+        data &&
+        <main>
+          <Content>
+            <ButtonText title="Excluir nota" />
+            <h1>{data.title}</h1>
 
-      <main>
-        <Content>
-          <ButtonText title="Excluir nota" />
+            <p>
+              {data.description}
+            </p>
 
-          <h1>Introdução ao React</h1>
+            {data.links &&
+            <Section title="Links úteis">
+                <Links>
+                  {data.links.map(link => (
+                    <li key={String(link.id)}>
+                      <a href={link.url} target="blank">{link.url}</a>
+                    </li>
+                  ))}
+                </Links>
+            </Section>}
+            
+            {data.tags &&
+            <Section title="Marcadores">
+                {data.tags.map(tag => (
+                  <Tags key={tag.id} title={tag.name} />
+                ))}
+            </Section>}
 
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Minima quam impedit, vel natus laborum et autem assumenda,
-            doloremque debitis unde harum quas animi? Fugit laudantium
-            magni excepturi rerum ex magnam?
-          </p>
+            <Button title="Voltar" onClick={handleBack}/>
+          </Content>
+        </main>
 
-          <Section title="Links úteis">
-              <Links>
-                <li><a href="#">https://rocketseat.com.br/</a></li>
-                <li><a href="#">https://rocketseat.com.br/</a></li>
-              </Links>
-          </Section>
-
-          <Section title="Marcadores">
-              <Tags title="React" />
-              <Tags title="Express" />
-          </Section>
-
-          <Button title="Voltar"/>
-        </Content>
-      </main>
+      }
     </Container>
   )
 }

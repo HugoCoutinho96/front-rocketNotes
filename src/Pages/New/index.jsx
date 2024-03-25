@@ -41,7 +41,7 @@ export function New(){
         const tag = newTag.trim()
 
         if(tag === "")
-         alert("Digite um link!")
+         alert("Digite uma tag!")
         else{
             setTags(prevState => [...prevState, tag])
             setNewTag("")

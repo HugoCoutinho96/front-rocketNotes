@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100%;
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
-
+    cursor: pointer;
     border-radius: 10px;
     padding: 22px;
     margin-bottom: 16px;
