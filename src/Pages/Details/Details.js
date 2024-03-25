@@ -39,6 +39,10 @@ export const Content = styled.div`
         align-self: end;
     }
 
+    > button:last-child{
+        cursor: pointer;
+    }
+
     > h1{
         font-size:36px;
         font-weight: 500;
