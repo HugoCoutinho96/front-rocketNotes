@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { ButtonText } from "../../components/ButtonText";
 import { api } from "../../services"
 import notebookImg from "../../assets/notebook.jpg"
 
@@ -14,6 +15,10 @@ export function SignUp(){
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+
+    function handleBack(){
+        navigate(-1)
+      }
  
     function handleSignUp(){
         if(!name || !email || !password){
@@ -48,7 +53,7 @@ export function SignUp(){
 
                 <Button title="Cadastrar" onClick={handleSignUp}/>
 
-                <Link to="/">Voltar para o login</Link>
+                <ButtonText title="Voltar para o login" onClick={handleBack}/>
             </Form>
         </Container>
     )
