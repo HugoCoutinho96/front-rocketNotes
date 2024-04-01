@@ -43,7 +43,8 @@ export const Form = styled.form`
     
     export const Background = styled.div`
         flex: 1;
-        background: url(${({$img}) => $img}) no-repeat center center;
+        background: url(${backgroundImg}) no-repeat center center;
+        background-size: cover;
     `
 
 

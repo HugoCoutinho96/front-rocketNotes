@@ -38,4 +38,8 @@ export const Form = styled.form`
             color: ${({theme}) => theme.COLORS.GRAY_100};
         }
     }
+
+    > button:last-child{
+        cursor: pointer;
+    }
 `

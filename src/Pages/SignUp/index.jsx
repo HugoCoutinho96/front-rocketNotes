@@ -1,4 +1,4 @@
-import { Container, Form } from "./styles";
+import { Container, Form, Background } from "./styles";
 import {FiMail, FiLock, FiUser} from "react-icons/fi"
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -41,7 +41,7 @@ export function SignUp(){
 
     return(
         <Container>
-            <img src={notebookImg}/>
+            <Background/>
             <Form>
                 <h1>Rocket Note</h1>
                 <p>Aplicação para salvar e gerenciar seus links úteis.</p>

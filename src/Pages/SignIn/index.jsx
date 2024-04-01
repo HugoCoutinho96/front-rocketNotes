@@ -5,7 +5,6 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { useAuth } from "../../hooks/Auth";
 import { useState } from "react";
-import backgroundImg from "../../assets/notebook.jpg"
 
 export function SignIn(){
 
@@ -32,7 +31,7 @@ export function SignIn(){
 
                 <Link to="/register">Criar Conta</Link>
             </Form>
-            <Background $img={backgroundImg}/>
+            <Background/>
         </Container>
     )
 }
