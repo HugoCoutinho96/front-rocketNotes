@@ -5,6 +5,12 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     align-items: stretch;
+
+    @media(max-width: 563px){
+        justify-content: center;
+        overflow-x: hidden;
+        flex-direction: column;
+    }
 `
 
 export const Form = styled.form`
@@ -38,10 +44,20 @@ export const Form = styled.form`
             color: ${({theme}) => theme.COLORS.ORANGE};
         }
     }
+
+    @media(max-width: 563px){
+        padding: 0 68px;
+        overflow-x: hidden;
+    }
+    
 `
 
 export const Background = styled.div`
         flex: 1;
         background: url(${backgroundImg}) no-repeat center center;
         background-size: cover;
+
+        @media(max-width: 563px){
+            display: none
+        }
 `

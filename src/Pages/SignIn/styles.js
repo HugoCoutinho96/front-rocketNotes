@@ -6,6 +6,12 @@ export const Container = styled.div`
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
+
+    @media(max-width: 563px){
+        justify-content: center;
+        overflow-x: hidden;
+        flex-direction: column;
+    }
 `
 
 export const Form = styled.form`
@@ -39,12 +45,21 @@ export const Form = styled.form`
     > button{
         cursor: pointer;
     }
-    `
+
+    @media(max-width: 563px){
+        padding: 0 68px;
+        overflow-x: hidden;
+    }    
+`
     
     export const Background = styled.div`
         flex: 1;
         background: url(${backgroundImg}) no-repeat center center;
         background-size: cover;
-    `
+
+        @media(max-width: 563px){
+            display: none
+        }
+`
 
 
