@@ -14,6 +14,14 @@ export const Container = styled.div`
     "newnote content";
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
+
+    @media(max-width: 563px){
+        grid-template-areas: 
+            "header header" 
+            "search search"
+            "content content"
+            "newnote content";
+    }
 `
 export const Brand = styled.div`
     grid-area: brand;
