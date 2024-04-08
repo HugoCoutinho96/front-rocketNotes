@@ -15,12 +15,15 @@ export const Container = styled.div`
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
 
-    @media(max-width: 563px){
+    @media(max-width: 619px){
+        grid-template-columns: auto;
+        grid-template-rows: 105px 128px 500px 64px;
         grid-template-areas: 
-            "header header" 
-            "search search"
-            "content content"
-            "newnote content";
+            "header" 
+            "search"
+            "content"
+            "newnote";
+
     }
 `
 export const Brand = styled.div`
@@ -35,6 +38,10 @@ export const Brand = styled.div`
         font-size: 24px;
         color: ${({theme}) => theme.COLORS.ORANGE};;
     }
+
+    @media(max-width: 619px){
+        display: none;
+    }
 `
 export const Menu = styled.ul`
     grid-area: menu;
@@ -48,6 +55,10 @@ export const Menu = styled.ul`
     > li{
         margin-top: 24px;
     }
+
+    @media(max-width: 619px){
+        display: none;
+    }
 `
 export const Search = styled.div`
     grid-area: search;
@@ -57,6 +68,10 @@ export const Content = styled.div`
     grid-area: content;
     padding: 0 64px;
     overflow-y: auto;
+
+    @media(max-width: 619px){
+        padding: 20px 64px;
+    }
 `
 export const NewNote = styled(Link)`
     grid-area: newnote;
@@ -68,4 +83,12 @@ export const NewNote = styled(Link)`
     align-items: center;
     justify-content: center;
     gap: 8px;
+
+    @media(max-width: 619px){
+        justify-self: center;
+        margin-top: 40px;
+        padding: 30px 20px;
+        width: 30%;
+        border-radius: 10px;
+    }
 `

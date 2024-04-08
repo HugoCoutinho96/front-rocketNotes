@@ -20,5 +20,10 @@ export const Container = styled.div`
         width: 100%;
         display: flex;
         margin-top: 24px;
+        flex-wrap: wrap;
+
+        span{
+            margin-bottom: 10px;
+        }
     }
 `
