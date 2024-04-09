@@ -6,7 +6,7 @@ export const Container = styled.div`
     cursor: pointer;
     border-radius: 10px;
     padding: 22px;
-    margin-bottom: 16px;
+    margin-top: 16px;
 
     > h1{
         flex: 1;

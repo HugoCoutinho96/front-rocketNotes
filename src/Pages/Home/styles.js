@@ -70,15 +70,16 @@ export const Content = styled.div`
     overflow-y: auto;
 
     @media(max-width: 619px){
-        padding: 20px 64px;
+        margin: 10px 0;
+        padding: 0px 64px;
     }
 `
 export const NewNote = styled(Link)`
     grid-area: newnote;
 
     background-color: ${({theme}) => theme.COLORS.ORANGE};
+    color: ${({theme}) => theme.COLORS.BACKGROUND_900};
     border: none;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,9 +87,9 @@ export const NewNote = styled(Link)`
 
     @media(max-width: 619px){
         justify-self: center;
-        margin-top: 40px;
+        margin: 20px 0;
         padding: 30px 20px;
-        width: 30%;
+        width: 40%;
         border-radius: 10px;
     }
 `
