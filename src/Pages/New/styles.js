@@ -19,6 +19,10 @@ export const Container = styled.div`
     > main{
         grid-area: content;
         overflow-y: auto;
+
+        @media(max-width: 619px){
+        padding: 0 15px;
+    }
     }
 `  
 

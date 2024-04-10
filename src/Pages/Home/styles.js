@@ -63,6 +63,10 @@ export const Menu = styled.ul`
 export const Search = styled.div`
     grid-area: search;
     padding: 64px 64px 0;
+
+    @media(max-width: 619px){
+        padding: 64px 15px;
+    }
 `
 export const Content = styled.div`
     grid-area: content;
@@ -71,7 +75,7 @@ export const Content = styled.div`
 
     @media(max-width: 619px){
         margin: 10px 0;
-        padding: 0px 64px;
+        padding: 0 15px;
     }
 `
 export const NewNote = styled(Link)`

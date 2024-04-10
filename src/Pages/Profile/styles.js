@@ -22,6 +22,10 @@ export const Container = styled.div`
                 border: none;
                 cursor: pointer;
             }
+
+            @media(max-width: 767px){
+                padding: 0 20px;
+            }
         }
 `
 
@@ -31,6 +35,10 @@ export const Form = styled.form`
 
     > div:nth-child(4){
         margin-top: 24px;
+    }
+
+    @media(max-width: 619px){
+        padding: 0 15px;
     }
 `
 
