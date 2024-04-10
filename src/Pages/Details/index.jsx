@@ -62,9 +62,11 @@ export function Details(){
             
             {data.tags &&
             <Section title="Marcadores">
+              <div>
                 {data.tags.map(tag => (
                   <Tags key={tag.id} title={tag.name} />
                 ))}
+              </div>
             </Section>}
 
             <Button title="Voltar" onClick={handleBack}/>

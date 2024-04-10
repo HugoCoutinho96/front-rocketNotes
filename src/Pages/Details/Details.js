@@ -14,6 +14,10 @@ export const Container =  styled.div`
         padding: 64px 0;
         grid-area: content;
         overflow-y: scroll;
+
+        @media(max-width: 619px){
+            padding: 64px 15px;
+        }
     }
 `
 
@@ -41,6 +45,7 @@ export const Content = styled.div`
 
     > button:last-child{
         cursor: pointer;
+        margin-top: 50px;
     }
 
     > h1{
@@ -53,5 +58,22 @@ export const Content = styled.div`
         font-size: 16px;
         margin-top: 16px;
         text-align: justify;
+    }
+
+    > section{
+        margin-top: 50px;
+        
+        h2{
+            margin-bottom: 20px;
+        } 
+        
+        > div{
+            display: flex;
+            flex-wrap: wrap;
+
+            span{
+                margin-top: 10px;
+            }
+        }
     }
 `

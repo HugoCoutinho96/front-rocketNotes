@@ -89,7 +89,7 @@ export const NewNote = styled(Link)`
         justify-self: center;
         margin: 20px 0;
         padding: 30px 20px;
-        width: 40%;
+        width: 90%;
         border-radius: 10px;
     }
 `
