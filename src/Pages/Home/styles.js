@@ -91,7 +91,7 @@ export const NewNote = styled(Link)`
 
     @media(max-width: 619px){
         justify-self: center;
-        margin: 20px 0;
+        margin: 10px 0;
         padding: 30px 20px;
         width: 90%;
         border-radius: 10px;
