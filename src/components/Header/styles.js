@@ -12,6 +12,10 @@ export const Container = styled.header`
     display: flex;
     justify-content: space-between;
     padding: 0 80px;
+
+    @media(max-width: 768px){
+        padding: 0 20px; 
+    }
 `
 
 export const Profile = styled(Link)`
@@ -47,8 +51,10 @@ export const Logout = styled.button`
     background: none;
     font-size: 36px;
     color: ${({theme}) => theme.COLORS.GRAY_100};
+    transition: color 0.1s;
 
     &:hover{
         cursor: pointer;
+        color: ${({theme}) => theme.COLORS.WHITE};
     }
 `

@@ -15,6 +15,11 @@ export const Container = styled.div`
             svg{
                 color: ${({theme}) => theme.COLORS.GRAY_100};
                 font-size: 24px;
+                transition: color 0.1s;
+
+                &:hover{
+                    color: ${({theme}) => theme.COLORS.WHITE};
+                }
             }
 
             button{

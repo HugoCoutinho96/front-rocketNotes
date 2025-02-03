@@ -5,8 +5,10 @@ export const Container = styled.button`
     color: ${({theme, $isActive}) => $isActive ? theme.COLORS.ORANGE : theme.COLORS.GRAY_100};
     border: none;
     font-size: 16px;
+    transition: color 0.1s;
 
     &:hover{
         cursor: pointer;
+        color: ${({theme}) => theme.COLORS.WHITE};
     }
 `
