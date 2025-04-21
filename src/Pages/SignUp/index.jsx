@@ -1,12 +1,11 @@
 import { Container, Form, Background } from "./styles";
 import {FiMail, FiLock, FiUser} from "react-icons/fi"
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { api } from "../../services"
-import notebookImg from "../../assets/notebook.jpg"
 
 
 export function SignUp(){
@@ -43,7 +42,7 @@ export function SignUp(){
         <Container>
             <Background/>
             <Form>
-                <h1>Rocket Note</h1>
+                <h1>Text Note</h1>
                 <p>Aplicação para salvar e gerenciar seus links úteis.</p>
                 <h2>Crie sua conta</h2>
 

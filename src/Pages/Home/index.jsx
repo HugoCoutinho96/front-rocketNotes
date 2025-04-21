@@ -55,7 +55,7 @@ export function Home(){
 
     return(
         <Container>
-            <Brand><h1>Rocketnotes</h1></Brand>
+            <Brand><h1>TextNotes</h1></Brand>
 
             <Header/>
 
@@ -95,7 +95,7 @@ export function Home(){
                             <Note
                                 key={String(note.id)} 
                                 data={note}
-                                onClick={e => handleDetails(note.id)}
+                                onClick={() => handleDetails(note.id)}
                             />
                         ))
                     }
